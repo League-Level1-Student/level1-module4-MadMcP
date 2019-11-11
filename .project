@@ -14,21 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/_06_book_of_illusions/illusion1.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/illusion1.jpg</locationURI>
-		</link>
-		<link>
-			<name>src/_06_book_of_illusions/illusion2.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/illusion2.jpg</locationURI>
-		</link>
-		<link>
-			<name>src/_07_fortune_teller/fortune teller.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/fortune%20teller.jpg</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
