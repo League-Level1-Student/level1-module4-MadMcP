@@ -5,11 +5,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Calculator implements ActionListener {
 	
 	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
 	JTextField text1 = new JTextField();
 	JTextField text2 = new JTextField();
 	JButton button1 = new JButton();
@@ -19,13 +21,14 @@ public class Calculator implements ActionListener {
 	
 	void setup() {
 	frame.setVisible(true);
-	frame.setSize(500, 750);
-	frame.add(text1);
-	frame.add(text2);
-	frame.add(button1);
-	frame.add(button2);
-	frame.add(button3);
-	frame.add(button4);
+	frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+	frame.add(panel);
+	panel.add(text1);
+	panel.add(text2);
+	panel.add(button1);
+	panel.add(button2);
+	panel.add(button3);
+	panel.add(button4);
 	frame.pack();
 	button1.addActionListener(this);
 	button1.setText("add");
@@ -52,24 +55,42 @@ public class Calculator implements ActionListener {
 	}
 	
 	int mul(int number1, int number2) {
-		int number3 = number1 + number2;
-		for (int i = number2; i > 0; i--) {
-			number3 = number3 + number2;
-		}
+		int number3 = number1 * number2;
 		return number3;
 	}
 	
 	int div(int number1, int number2) {
-		int number3 = 0;
-		for (int i = number1; i >= 0; i = i - number2) {
-			number3 = number3 + 1;
-		}
+		int number3 = number1 / number2;
 		return number3;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		 Object buttonPressed = e.getSource();
+		 int number1 = Integer.parseInt(text1.getText());
+		 int number2 = Integer.parseInt(text2.getText());
+		 int answer;
+		if(buttonPressed == button1) {
+			 answer = add(number1, number2);
+			 System.out.println(answer);
+		}
+		
+		else if(buttonPressed == button2) {
+			answer = sub(number1, number2);
+			System.out.println(answer);
+		}
+		
+		else if(buttonPressed == button3) {
+			answer = mul(number1, number2);
+			System.out.println(answer);
+		
+		}
+		
+		else if(buttonPressed == button4) {
+			answer = div(number1, number2);
+			System.out.println(answer);
+		}
 		
 	}
 }
