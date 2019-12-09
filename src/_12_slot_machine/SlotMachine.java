@@ -1,6 +1,7 @@
 package _12_slot_machine;
 
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
@@ -23,17 +24,10 @@ public class SlotMachine implements ActionListener {
 	int r2 = new Random().nextInt(3);
 	int r3 = new Random().nextInt(3);
 	
-	public static void main(String[] args) throws MalformedURLException {	
-		SlotMachine sm = new SlotMachine();
-		sm.setup();
-	}
-	
 	void setup() throws MalformedURLException{
-		r1 = new Random().nextInt(3);
-		r2 = new Random().nextInt(3);
-		r3 = new Random().nextInt(3);
+		button = new JButton();
 		frame.setVisible(true);
-		frame.setSize(1000, 350);
+		frame.setPreferredSize(new Dimension(1250, 500));
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 		frame.add(panel);
 		panel.add(button);
@@ -66,9 +60,7 @@ public class SlotMachine implements ActionListener {
 		else if (r3 == 2) {
 			panel.add(createLabelImage("Lemon.jpeg"));
 		}
-		if(r1 == r2 && r2 == r3 && r1 == r3) {
-		System.out.println("YOU WIN!!!");
-		}
+		frame.pack();
 	}
 	
 	private JLabel createLabelImage(String fileName) throws MalformedURLException{
@@ -81,7 +73,17 @@ public class SlotMachine implements ActionListener {
 	JLabel imageLabel = new JLabel(icon);
 	return imageLabel;
 }
-
+	void check() {
+		System.out.println(r1 + ", " + r2 + ", " + r3);
+		if(r1 == r2 && r2 == r3) {
+			System.out.println("YOU WIN!!!");
+		}
+		else {
+			System.out.println("-YOU LOSE-");
+		}
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -110,6 +112,9 @@ public class SlotMachine implements ActionListener {
 				e1.printStackTrace();
 			}
 		}
+		r1 = new Random().nextInt(3);
+		r2 = new Random().nextInt(3);
+		r3 = new Random().nextInt(3);
 		panel = new JPanel();
 		frame.add(panel);
 		try {
@@ -118,7 +123,8 @@ public class SlotMachine implements ActionListener {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
+		
+		check();
 	}
 	
 }
